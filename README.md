@@ -1,2 +1,2 @@
-# kraken-node-api
-BearTax implementation for kraken node api
+# Kraken Node API
+BearTax Node.js implementation for [Kraken API](https://www.kraken.com/features/api)
