@@ -4,19 +4,22 @@ var assert = require('assert');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
+const API_KEY = 'g8HoNAJVAPFWYiM2NQHwCsSQIxnz46XeD6SMlxuOLg4C84YG0w195h6q';
+const API_SECRET = '3XOIWJ4y/jotnKJBndFqw2r3GDeuGIj/bnFHBnJkb703LxlGcglxCHM1K6+xDdBgojb/LGa1EJwBFOOVOziZg==';
+
 describe('Client', () => {
     describe('client constructor', () => {
         it('should return client', function () {
-            var client = new Client('g8HoNAJVAPFWYiM2NQHwCsSQIxnz46XeD6SMlxuOLg4C84YG0w195h6q', '3XOIWJ4y/jotnKJBndFqw2r3GDeumGIj/bnFHBnJkb703LxlGcglxCHM1K6+xDdBgojb/LGa1EJwBFOOVOziZg==');
+            var client = new Client(API_KEY, API_SECRET);
             assert(client);
-            assert.equal(client.apiKey, 'g8HoNAJVAPFWYiM2NQHwCsSQIxnz46XeD6SMlxuOLg4C84YG0w195h6q');
-            assert.equal(client.apiSecret, '3XOIWJ4y/jotnKJBndFqw2r3GDeumGIj/bnFHBnJkb703LxlGcglxCHM1K6+xDdBgojb/LGa1EJwBFOOVOziZg==');
+            assert.equal(client.apiKey, API_KEY);
+            assert.equal(client.apiSecret, API_SECRET);
             assert.equal(client.timeout, 20000);
         });
     });
 
-    describe('client api', () => {
-        var client = new Client('g8HoNAJVAPFWYiM2NQHwCsSQIxnz46XeD6SMlxuOLg4C84YG0w195h6q', '3XOIWJ4y/jotnKJBndFqw2r3GDeumGIj/bnFHBnJkb703LxlGcglxCHM1K6+xDdBgojb/LGa1EJwBFOOVOziZg==');
+    describe('client public api', () => {
+        var client = new Client(API_KEY, API_SECRET);
         it('should return server time', (done) => {
             client.time().then(function(resp) {
                 assert(resp.result);
