@@ -117,4 +117,35 @@ describe('Public API', () => {
       assert.fail(err);
     });
   });
+
+  it('should return recent public trades for `ETHUSDT`', (done) => {
+    let params = {
+      pair: 'ETHUSDT'
+    };
+    client.trades(params).then(function(resp) {
+      assert(resp.result);
+      let result = resp.result;
+      assert(result);
+      assert(result['ETHUSDT']);
+      done();
+    }).catch(err => {
+      assert.fail(err);
+    });
+  });
+
+  it('should return recent spread data `ETHUSDT`', (done) => {
+    let params = {
+      pair: 'ETHUSDT'
+    };
+    client.spread(params).then(function(resp) {
+      assert(resp.result);
+      let result = resp.result;
+      assert(result);
+      assert(result['ETHUSDT']);
+      done();
+    }).catch(err => {
+      assert.fail(err);
+    });
+  });
+
 });
