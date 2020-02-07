@@ -1,9 +1,8 @@
 {
-  "name": "kraken-node-api",
+  "name": "kraken-api-node",
   "version": "1.0.0",
   "description": "Kraken Node.js Library",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive",
     "lint": "eslint lib/** index.js",

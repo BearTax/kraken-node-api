@@ -5,7 +5,7 @@ Node.js library for [Kraken API](https://www.kraken.com/features/api)
 
 ## Installation
 
-`npm install <kraken-node-api>` [Yet to be published]
+`npm install kraken-api-node`
 
 
 ## Quick Start
