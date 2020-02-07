@@ -61,7 +61,7 @@ client.ticker();
 URL : https://api.kraken.com/0/public/OHLC
 
 ```javascript
-client.oHLC();
+client.ohlc();
 ```
 
 **Depth**
