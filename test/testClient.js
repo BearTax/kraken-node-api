@@ -14,7 +14,7 @@ describe('Client', () => {
             assert(client);
             assert.equal(client.apiKey, API_KEY);
             assert.equal(client.apiSecret, API_SECRET);
-            assert.equal(client.timeout, 20000);
+            assert.equal(client.timeout, 5000);
         });
     });
 
@@ -53,6 +53,31 @@ describe('Client', () => {
                 assert.equal(Object.keys(result)[0], 'BCH');
                 done();
             }).catch(err => {  
+                assert.fail(err); 
+            });
+        });
+    });
+
+    describe('client private api', () => {
+        var client = new Client(API_KEY, API_SECRET);
+
+        it('should return balance', (done) => {
+            client.balance().then(function(resp) {
+                assert(resp.result);
+                done();
+            }).catch(err => {
+                assert.fail(err); 
+            });
+        });
+
+        it('should return trade history', (done) => {
+            client.tradesHistory().then(function(resp) {
+                // console.log(JSON.stringify(resp));
+                assert(resp.result);
+                let result = resp.result;
+                assert.equal(Object.keys(result.trades).length, result.count)
+                done();
+            }).catch(err => {
                 assert.fail(err); 
             });
         });
